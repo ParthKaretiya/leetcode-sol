@@ -1,4 +1,4 @@
-// Last updated: 14/05/2026, 13:28:46
+// Last updated: 14/05/2026, 13:28:50
 1class Solution {
 2public:
 3    int diagonalSum(vector<vector<int>>& mat) {
