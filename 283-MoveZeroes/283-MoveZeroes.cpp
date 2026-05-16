@@ -1,14 +1,15 @@
-// Last updated: 24/04/2026, 09:56:30
-class Solution {
-public:
-    void moveZeroes(vector<int>& nums) {
-        int j=0;
-        for(int i=0 ; i<nums.size() ;i++){
-            if(nums[i]!=0){
-                swap(nums[i] ,nums[j]);
-                j++;
-            }
-        }
-      
-    }
-};
+// Last updated: 16/05/2026, 10:41:18
+1class Solution {
+2public:
+3    void moveZeroes(vector<int>& nums) {
+4     int j =0 ;
+5     for(int i=0; i<nums.size();i++){
+6        if(nums[i]!=0){
+7            swap(nums[i],nums[j]);
+8            j++;
+9        }
+10        
+11     }
+12      
+13    }
+14};
