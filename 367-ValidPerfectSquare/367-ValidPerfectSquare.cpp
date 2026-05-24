@@ -1,4 +1,4 @@
-// Last updated: 24/05/2026, 15:00:26
+// Last updated: 24/05/2026, 19:37:37
 1class Solution {
 2public:
 3    bool isPerfectSquare(int num) {
