@@ -1,54 +1,56 @@
-// Last updated: 04/06/2026, 11:02:28
+// Last updated: 04/06/2026, 17:17:39
 1class Solution {
 2public:
-3
-4    string solve(string &s, int &i){
-5
-6        string result = "";
-7        int num = 0;
-8
-9        while(i < s.size()){
+3    string decodeString(string s) {
+4
+5        stack<string> st;
+6        stack<int> num;
+7
+8        string str = "";
+9        int number = 0;
 10
-11            // If digit
-12            if(isdigit(s[i])){
-13                num = num * 10 + (s[i] - '0');
-14                i++;
-15            }
-16
-17            // Opening bracket
-18            else if(s[i] == '['){
-19
-20                i++; // move after '['
-21
-22                string temp = solve(s, i);
+11        for (int i = 0; i < s.size(); i++) {
+12
+13            // if digit
+14            if (isdigit(s[i])) {
+15                number = number * 10 + (s[i] - '0');
+16            }
+17
+18            // if [
+19            else if (s[i] == '[') {
+20
+21                num.push(number);
+22                st.push(str);
 23
-24                while(num--){
-25                    result += temp;
-26                }
+24                number = 0;
+25                str = "";
+26            }
 27
-28                num = 0;
-29            }
+28            // if ]
+29            else if (s[i] == ']') {
 30
-31            // Closing bracket
-32            else if(s[i] == ']'){
+31                int times = num.top();
+32                num.pop();
 33
-34                i++; // move after ']'
-35                return result;
-36            }
-37
-38            // Normal character
-39            else{
-40                result += s[i];
-41                i++;
-42            }
-43        }
-44
-45        return result;
-46    }
-47
-48    string decodeString(string s) {
-49
-50        int i = 0;
-51        return solve(s, i);
-52    }
-53};
+34                string prev = st.top();
+35                st.pop();
+36
+37                string temp = "";
+38
+39                while (times > 0) {
+40                    temp += str ;
+41                    times--;
+42                }
+43
+44                str = prev + temp;
+45            }
+46
+47            // normal character
+48            else {
+49                str += s[i];
+50            }
+51        }
+52
+53        return str;
+54    }
+55};
