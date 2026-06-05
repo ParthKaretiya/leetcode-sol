@@ -1,4 +1,4 @@
-// Last updated: 05/06/2026, 14:29:29
+// Last updated: 05/06/2026, 14:37:56
 1class Solution {
 2public:
 3    string removeDuplicates(string s) {
@@ -19,11 +19,11 @@
 18
 19     
 20        while (!st.empty()) {
-21            ans += st.top();
+21            ans = st.top() + ans;
 22            st.pop();
 23        }
 24
-25        reverse(ans.begin(), ans.end());
+25
 26
 27        return ans;
 28    }
