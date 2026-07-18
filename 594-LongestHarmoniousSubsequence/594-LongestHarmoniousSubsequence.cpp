@@ -1,4 +1,4 @@
-// Last updated: 17/07/2026, 13:24:26
+// Last updated: 18/07/2026, 10:26:44
 1class Solution {
 2public:
 3    int findLHS(vector<int>& nums) {
@@ -14,30 +14,24 @@
 13
 14        
 15        for (auto it : m) {
-16
-17      
-18            int num = it.first;
-19
-20
-21            int nextNumber = num + 1;
-22
-23          
-24            if (m.count(nextNumber) > 0) {
+16            int num = it.first;
+17
+18            int nextNumber = num + 1;       
+19            
+20            if (m.count(nextNumber) > 0) {
+21
+22                int currentFrequency = it.second;
+23    
+24                int nextFrequency = m[nextNumber];
 25
-26                int currentFrequency = it.second;
+26                int totalLength = currentFrequency + nextFrequency;
 27
-28               
-29                int nextFrequency = m[nextNumber];
-30
-31            
-32                int totalLength = currentFrequency + nextFrequency;
+28                if (totalLength > ans) {
+29                    ans = totalLength;
+30                }
+31            }
+32        }
 33
-34                if (totalLength > ans) {
-35                    ans = totalLength;
-36                }
-37            }
-38        }
-39
-40        return ans;
-41    }
-42};
+34        return ans;
+35    }
+36};
