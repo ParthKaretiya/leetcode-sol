@@ -1,4 +1,4 @@
-// Last updated: 7/16/2026, 11:40:18 AM
+// Last updated: 7/28/2026, 9:28:13 AM
 1class Solution {
 2public:
 3    int peakIndexInMountainArray(vector<int>& arr) {
