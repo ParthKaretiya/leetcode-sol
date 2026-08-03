@@ -1,4 +1,4 @@
-// Last updated: 31/07/2026, 13:22:38
+// Last updated: 03/08/2026, 09:12:26
 1class Solution {
 2public:
 3    vector<int> decrypt(vector<int>& code, int k) {
