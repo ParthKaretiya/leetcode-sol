@@ -1,24 +1,23 @@
-// Last updated: 18/08/2026, 17:14:59
+// Last updated: 18/08/2026, 17:21:39
 1/**
 2 * Definition for singly-linked list.
 3 * struct ListNode {
 4 *     int val;
 5 *     ListNode *next;
-6 *     ListNode(int x) : val(x), next(NULL) {}
-7 * };
-8 */
-9class Solution {
-10public:
-11    bool hasCycle(ListNode *head) {
-12        ListNode * fast = head ;
-13        ListNode * slow = head  ;
-14        while(fast!=nullptr && fast->next!=nullptr){
-15            slow = slow->next ;
-16            fast = fast->next->next ;
-17            if(slow == fast){
-18                return true;
-19            }
-20        }
-21        return false;
-22    }
-23};
+6 *     ListNode() : val(0), next(nullptr) {}
+7 *     ListNode(int x) : val(x), next(nullptr) {}
+8 *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+9 * };
+10 */
+11class Solution {
+12public:
+13    ListNode* middleNode(ListNode* head) {
+14        ListNode * fast = head ;
+15        ListNode * slow = head ;
+16       while(fast != nullptr && fast->next != nullptr){
+17            fast = fast->next->next ;
+18            slow = slow->next ;
+19        } 
+20        return slow ;
+21    }
+22};
