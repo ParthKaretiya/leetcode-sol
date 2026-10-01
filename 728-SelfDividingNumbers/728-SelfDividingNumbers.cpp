@@ -1,34 +1,29 @@
-// Last updated: 23/05/2026, 15:20:28
+// Last updated: 01/10/2026, 16:28:17
 1class Solution {
 2public:
 3    vector<int> selfDividingNumbers(int left, int right) {
-4
-5        vector<int> v1;
-6
-7        for(int i = left; i <= right; i++) {
-8
-9            int num = i;
-10            bool valid = true;
-11
-12            while(num > 0) {
-13
-14                int rem = num % 10;
-15
-16                // check division by 0 and divisibility
-17                if(rem == 0 || i % rem != 0) {
-18                    valid = false;
-19                    break;
-20                }
-21
-22                num = num / 10;
+4        vector<int> v;
+5
+6        for (int i = left; i <= right; i++) {
+7            int curr = i;
+8            bool valid = true;
+9
+10            while (curr > 0) {
+11                int rem = curr % 10;
+12
+13                if (rem == 0 || i % rem != 0) {
+14                    valid = false;
+15                    break;
+16                }
+17
+18                curr = curr / 10;
+19            }
+20
+21            if (valid) {
+22                v.push_back(i);
 23            }
-24
-25            // push only after checking all digits
-26            if(valid) {
-27                v1.push_back(i);
-28            }
-29        }
-30
-31        return v1;
-32    }
-33};
+24        }
+25
+26        return v;
+27    }
+28};
