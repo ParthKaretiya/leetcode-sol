@@ -1,34 +1,29 @@
-// Last updated: 8/10/2026, 2:20:46 PM
+// Last updated: 01/10/2026, 13:51:34
 1class Solution {
 2public:
 3    ListNode* deleteDuplicates(ListNode* head) {
-4
-5        ListNode dummy(0);
-6        dummy.next = head;
-7
-8        ListNode* prev = &dummy;
-9        ListNode* curr = head;
-10
-11        while(curr != nullptr)
-12        {
-13            if(curr->next != nullptr && curr->val == curr->next->val)
-14            {
-15                int value = curr->val;
-16
-17                while(curr != nullptr && curr->val == value)
-18                {
-19                    curr = curr->next;
-20                }
-21
-22                prev->next = curr;
+4        ListNode dummy(0);
+5        dummy.next = head;
+6
+7        ListNode* prev = &dummy;
+8        ListNode* curr = head;
+9
+10        while (curr != NULL) {
+11            if (curr->next != NULL && curr->val == curr->next->val) {
+12                int duplicate = curr->val;
+13
+14                while (curr != NULL && curr->val == duplicate) {
+15                    curr = curr->next;
+16                }
+17
+18                prev->next = curr;
+19            }
+20            else {
+21                prev = curr;
+22                curr = curr->next;
 23            }
-24            else
-25            {
-26                prev = curr;
-27                curr = curr->next;
-28            }
-29        }
-30
-31        return dummy.next;
-32    }
-33};
+24        }
+25
+26        return dummy.next;
+27    }
+28};
